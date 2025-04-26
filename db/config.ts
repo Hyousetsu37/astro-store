@@ -22,7 +22,7 @@ const Product = defineTable({
   columns: {
     id: column.text({ primaryKey: true }),
     stock: column.number(),
-    slug: column.text(),
+    slug: column.text({ unique: true }),
     price: column.number(),
     sizes: column.text(),
     type: column.text(),

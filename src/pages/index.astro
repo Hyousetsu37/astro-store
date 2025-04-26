@@ -1,5 +1,18 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro';
+import MainLayout from "@/layouts/MainLayout.astro";
+import { actions } from "astro:actions";
+
+const { data: products, error } = await Astro.callAction(
+  actions.getProductsByPage,
+  {}
+);
+
+if (error) {
+  console.log(error);
+  // return Astro.redirect("/");
+}
+
+console.log(products);
 ---
 
 <MainLayout>
