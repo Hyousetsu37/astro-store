@@ -9,6 +9,7 @@ export default async function seed() {
   const roles = [
     { id: "admin", name: "Administrator" },
     { id: "user", name: "System user" },
+    { id: "test", name: "Test user" },
   ];
 
   const johnDoe = {
