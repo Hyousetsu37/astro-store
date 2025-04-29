@@ -15,20 +15,24 @@ const fullImages = images.map((image) => {
 
 <!-- Slider main container -->
 <div class="swiper mt-10 col-span-1 sm:col-span-2">
+  <h1>Hello</h1>
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
 
     {
-      fullImages.map((image) => (
-        <div class="swiper-slide">
-          <img
-            src={image}
-            alt="Product image"
-            class="w-full h-full object-cover px-10"
-          />
-        </div>
-      ))
+      fullImages.map((image) => {
+        console.log(image);
+        return (
+          <div class="swiper-slide">
+            <img
+              src={image}
+              alt="Product image"
+              class="w-full h-full object-cover px-10"
+            />
+          </div>
+        );
+      })
     }
     ...
   </div>
@@ -37,7 +41,7 @@ const fullImages = images.map((image) => {
 </div>
 
 <style>
-  .swipe {
+  .swiper {
     width: 100%;
     height: 600px;
   }
