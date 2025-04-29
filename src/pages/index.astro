@@ -18,7 +18,10 @@ const { products, totalPages } = data;
 
 if (error) {
   console.log(error);
-  // return Astro.redirect("/");
+  return Astro.redirect("/");
+}
+if (data.products.length === 0) {
+  return Astro.redirect(`/?page=${totalPages}`);
 }
 ---
 

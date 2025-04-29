@@ -40,7 +40,8 @@ if (error) {
         <button class="btn-quantity">+</button>
       </div>
 
-      <button class="mt-5 bg-blue-500 text-white p-3 w-full"
+      <button
+        class="mt-5 bg-blue-500 text-white p-3 w-full disabled:bg-gray-500"
         >Añadir al carrito</button
       >
 
@@ -53,6 +54,8 @@ if (error) {
 </MainLayout>
 
 <script>
+  import { CartCookiesClient } from "@/utils/cart-cookies";
+
   const sizeElements = document.querySelectorAll("li");
   sizeElements.forEach((liElement) => {
     liElement.addEventListener("click", () => {
@@ -87,11 +90,14 @@ if (error) {
       return alert("Please select a size");
     }
     addToCartButton.disabled = true;
-    console.log({
-      id: productIdInput.value,
+    CartCookiesClient.addItem({
+      productId: productIdInput.value,
       size: size,
       quantity: quantity,
     });
+
+    //TODO Change when we have the view transitions
+    window.location.href = "/cart";
   });
 </script>
 
