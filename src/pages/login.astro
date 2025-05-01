@@ -110,8 +110,6 @@ import AuthLayout from "@/layouts/AuthLayout.astro";
       password: formData.get("password") as string,
     });
 
-    console.log(resp);
-
     if (resp) {
       Swal.fire({
         icon: "error",
